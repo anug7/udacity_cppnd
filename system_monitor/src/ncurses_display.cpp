@@ -70,6 +70,8 @@ void NCursesDisplay::DisplayProcesses(std::vector<Process>& processes,
   mvwprintw(window, row, time_column, "TIME+");
   mvwprintw(window, row, command_column, "COMMAND");
   wattroff(window, COLOR_PAIR(2));
+  unsigned int loop_count = (unsigned int)n < processes.size() ? n : processes.size();
+  for (unsigned int i = 0; i < loop_count; ++i)
   for (int i = 0; i < n; ++i) {
     row++;
     //Clear current row content to handle previous texts
