@@ -119,7 +119,6 @@ long LinuxParser::Jiffies() {
   std::ifstream filestream(filename);
   std::string line, dummy;
   long times[10];
-  long up_time = 0;
   if (filestream.is_open()) {
     if(std::getline(filestream, line)){
       std::istringstream linestream(line);
@@ -175,11 +174,7 @@ long LinuxParser::StartTimeJiffies(int pid){
   if (filestream.is_open()) {
     if(std::getline(filestream, line)) {
       std::istringstream linestream(line);
-      for(int i = 0; i < 13; i++)
-        linestream >> key;
-      //Include child time also
-      linestream >> key; 
-      for(int i = 0; i < 4; i++)
+      for(int i = 0; i < 21; i++)
         linestream >> key;
       linestream >> start_time;
       return start_time;
@@ -194,7 +189,6 @@ long LinuxParser::ActiveJiffies() {
   std::ifstream filestream(filename);
   std::string line, dummy;
   long times[10];
-  long up_time = 0;
   if (filestream.is_open()) {
     if(std::getline(filestream, line)){
       std::istringstream linestream(line);
@@ -218,7 +212,6 @@ long LinuxParser::IdleJiffies() {
   std::ifstream filestream(filename);
   std::string line, dummy;
   long times[10];
-  long up_time = 0;
   if (filestream.is_open()) {
     if(std::getline(filestream, line)){
       std::istringstream linestream(line);
