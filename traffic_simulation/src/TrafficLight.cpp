@@ -24,6 +24,8 @@ void MessageQueue<T>::send(T &&msg)
     // perform vector modification under the lock
     std::lock_guard<std::mutex> uLock(_mutex);
 
+    //Clear improves performance
+    _messages.clear();
     // add vector to queue
     _messages.push_back(std::move(msg));
     _cond.notify_one(); // notify client after pushing new Vehicle into vector
@@ -37,10 +39,8 @@ TrafficLight::TrafficLight()
 
 void TrafficLight::waitForGreen()
 {
-    while(_mq.receive() == TrafficLightPhase::red)
-    {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
-    }
+    //sleep not required. as handled by MessageQueue
+    while(_mq.receive() == TrafficLightPhase::red);
 }
 
 TrafficLightPhase TrafficLight::getCurrentPhase()
@@ -57,8 +57,12 @@ void TrafficLight::simulate()
 // virtual function which is executed in a thread
 void TrafficLight::cycleThroughPhases()
 {
-    double cycleDuration = 4.0 + static_cast <double> (rand())/(static_cast <double> (RAND_MAX/(6.0-5.0)));
-    cycleDuration *= 1000;
+    std::random_device rd;     // only used once to initialise (seed) engine
+    std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
+    std::uniform_int_distribution<int> uni(4.0, 6.0); // guaranteed unbiased
+    
+    double cycleDuration = uni(rng);
+    long timeSinceLastUpdate;
 
     std::chrono::time_point<std::chrono::system_clock> lastUpdate;
     lastUpdate = std::chrono::system_clock::now();
@@ -68,8 +72,8 @@ void TrafficLight::cycleThroughPhases()
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
         // compute time difference to stop watch
-        long timeSinceLastUpdate = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - lastUpdate).count();
-        if (timeSinceLastUpdate >= (long)cycleDuration)
+        timeSinceLastUpdate = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - lastUpdate).count();
+        if (timeSinceLastUpdate >= cycleDuration)
         {
             std::unique_lock<std::mutex> lck(_mtx);
             _currentPhase = (_currentPhase == TrafficLightPhase::red) ? TrafficLightPhase::green: TrafficLightPhase::red;
@@ -78,8 +82,7 @@ void TrafficLight::cycleThroughPhases()
             lck.unlock();
             // reset stop watch for next cycle
             lastUpdate = std::chrono::system_clock::now();
-            cycleDuration = 4.0 + static_cast <double> (rand())/(static_cast <double> (RAND_MAX/(6.0-5.0)));
-            cycleDuration *= 1000;
+            cycleDuration = uni(rng);
         }
     }
 }
