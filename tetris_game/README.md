@@ -28,8 +28,8 @@ This is a Repo for the Capstone project in the [Udacity C++ Nanodegree Program](
 
 Rubris points:
 1. Code strucutures into Classes and Functions.
-2. Used of Smart pointers where required
-3. Used of Rule of 5 where required.
+2. Usage of Smart pointers where required
+3. Usage of Rule of 5 where required.
 4. OOPS - Polymorphism and Abstraction
 
 ## CC Attribution-ShareAlike 4.0 International
