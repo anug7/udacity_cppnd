@@ -1,12 +1,8 @@
 # CPPND: Capstone Snake Game Example
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).
+This is a Repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). I have chosen TetrisGame as my final project.
 
 <img src="tetris_game.png"/>
-
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
-
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -30,6 +26,11 @@ In this project, you can build your own C++ application or extend this Snake gam
 3. Compile: `cmake .. && make`
 4. Run it: `./TetrisGame`.
 
+Rubris points:
+1. Code strucutures into Classes and Functions.
+2. Used of Smart pointers where required
+3. Used of Rule of 5 where required.
+4. OOPS - Polymorphism and Abstraction
 
 ## CC Attribution-ShareAlike 4.0 International
 
