@@ -1,4 +1,4 @@
-# CPPND: Capstone Snake Game Example
+# CPPND: Capstone Tetris Game
 
 This is a Repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). I have chosen TetrisGame as my final project.
 
