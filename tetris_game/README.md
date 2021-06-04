@@ -33,32 +33,23 @@ This is a Repo for the Capstone project in the [Udacity C++ Nanodegree Program](
    * UP button - change orientation of the shapes/Tetromino
    * DOWN button - move faster
    * LEFT button - move the shape to left side
-   * RIGHT buttong - move the shape to right side
+   * RIGHT button - move the shape to right side
 
-## Rubris points addressed in the project:
-1. Loops, I/Os & Function:
-   * Code is structured with functions to handle various operations
-   * I/Os - used to read button events from user.
+## Rubris points and Criteria:
+1. Loops, I/Os & Functions:
+   * Code is structured into functions and loops to perform various tasks.
+   * I/Os is used to read user inpur as Key strokes and process it.
 3. OOPS:
-   * Code strucutures into Classes and Functions:
-   * Classes - Tetro, Board, Game and Controller.
-   * Polymorphism and Abstraction - IsCollision Function in Game class for different requirements
+   * Code strucutures into Classes and Functions.
+   * Uses proper access specifier for classes to handle encapsulation.
+   * Classes - `Tetro, Board, Game and Controller`
+   * Uses Initializer list for specific members.
+   * Encapsulates behavious with class methods.
+   * Polymorphism - `IsCollision` function in Game class for different requirements
 3. Memory management:
-   * Usage of Smart pointers where required
-   * Unique pointer is used in Game class for Tetro objects
-   * Use of references in Tetro class methods
-   * Rule of 5: Tetro class
-
-## CC Attribution-ShareAlike 4.0 International
-
-
-Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
-
-This work is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
-
-[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
-
-[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
-[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
-[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+   * Usage of Smart pointers in `Game` class
+   * Unique pointer is used in `Game` class for `Tetro` instances to own
+   * Use of references in `Tetro class` methods
+   * Rule of 5 is implemented in `Tetro class`
+4. Concurrency:
+   * Not used in the project.
