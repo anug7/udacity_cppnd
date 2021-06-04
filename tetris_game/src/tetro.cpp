@@ -213,6 +213,4 @@ Tetro::Tetro(Tetro &&other) {
   color[0] = other.color[0];
   color[1] = other.color[1];
   color[2] = other.color[2];
-
-  printf("tet");
 }
