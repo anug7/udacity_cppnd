@@ -35,6 +35,14 @@ This is a Repo for the Capstone project in the [Udacity C++ Nanodegree Program](
    * LEFT button - move the shape to left side
    * RIGHT button - move the shape to right side
 
+## Code structure
+1. The entire logic of the game is implemented in the `Game` class.
+2. User inputs are handled through `Controller` class.
+3. The shapes and their board pattern is implemented in the `Tetro` class.
+4. The `Board` class holds the structure of the board at any point in time. 
+5. The Main function to run is `Run` method in `Game` class.
+6. The rendering of the `board` and shapes/Tetromino are handled in the `Renderer` class
+
 ## Rubris points and Criteria:
 1. Loops, I/Os & Functions:
    * Code is structured into functions and loops to perform various tasks.
